@@ -1,0 +1,35 @@
+@startuml
+skinparam class {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+class "Инденер" as P {
+ Чертежные инструменты
+План оборудованния начертить(Характеристики оборудованния, ГОСТ)
+}
+hide circle
+@enduml
+
+@startuml
+skinparam actor {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+skinparam usecase {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+left to right direction
+actor P0 as "Сотрудник"
+actor P as "Инженер"
+actor M as "Бумага, карандаш, линейка"
+actor M0 as "Чертежные инструменты"
+usecase A as "Чертить"
+P -- (A)
+(A) -- M
+P0 <|-- P
+M --|> M0
+@enduml
