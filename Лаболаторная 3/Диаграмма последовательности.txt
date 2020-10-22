@@ -1,0 +1,12 @@
+@startuml
+actor Инженер as owner
+boundary Приложение as app
+entity Данные as data
+actor Чертежник as trainee
+owner - app  Запрос
+app - data  Заказ 
+data - app  Ответ
+app - trainee  Инструкция
+trainee - app  Подтверждение
+app - owner  Заказ чертежа принят
+@enduml
