@@ -1,0 +1,33 @@
+@startuml
+skinparam monochrome true
+
+actor Сотрудник as user
+participant "SCM система" as system
+database "База данных" as base
+
+user -> system : Запрос данных о закупке
+activate system
+system -> base : Запрос списка потребностей
+activate base
+base -> system : Список потребностей
+system -> base : Запрос отчета о закупках
+base -> system : Отчет о закупках
+system -> system : Анализ данных о потребностях
+system -> base : Данные о закупке
+deactivate base
+system -> user : Данные о закупке
+deactivate system
+
+user -> system : Запрос закупочной ведомости
+activate system
+system -> base : Запрос данных о закупке
+activate base
+base -> system : Данные о закупке
+system -> base : Запрос победителя конкурса
+base -> system : Победитель конкурса
+system -> system : Формирование закупочной ведомости
+system -> base : Закупочная ведомость
+deactivate base
+system -> user : Закупочная ведомость
+deactivate system
+@enduml
