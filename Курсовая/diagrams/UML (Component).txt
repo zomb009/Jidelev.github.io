@@ -1,0 +1,16 @@
+@startuml
+node "Сервер БД" {
+  DB - [Субд]
+}
+
+node "SCM система" {
+  System- [Анализ]
+  [System] --> DB
+}
+
+node "ПК сотрудника"{
+
+  User - [Приложение]
+  [User] --> System
+}
+@enduml
